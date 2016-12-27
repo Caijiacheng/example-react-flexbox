@@ -7,12 +7,29 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <p className="App-text">
+            reload.To get started, edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsfreload.To get started, edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
+           reload.To get started, edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
+           reload.To get started, edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
+           edit and save to redsfsdfsdfdsdsf
         </p>
+        </div>
+        <div>
+          <button className="Btn">
+            有效请求
+            </button>
+
+          <button className="Btn">
+            无效请求
+            </button>
+        </div>
       </div>
     );
   }
