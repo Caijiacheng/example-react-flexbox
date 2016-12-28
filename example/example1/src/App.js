@@ -3,6 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  renderBtn(text,handler) {
+    return <RequestBtn value={text} onClick = {handler}/>;
+  }
+
+  handlerValid() {
+    alert('valid click');
+  }
+
+  handlerInvaid() {
+     alert('invalid click');
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,20 +32,32 @@ class App extends Component {
            reload.To get started, edit and save to redsfsdfsdfdsdsf
            edit and save to redsfsdfsdfdsdsf
            edit and save to redsfsdfsdfdsdsf
-        </p>
+         </p>
         </div>
         <div>
-          <button className="Btn">
-            有效请求
-            </button>
 
-          <button className="Btn">
-            无效请求
-            </button>
+          {this.renderBtn('有效请求',this.handlerValid)}
+          {this.renderBtn('无效请求',this.handlerInvaid)}
+         
         </div>
       </div>
     );
   }
 }
+
+class RequestBtn extends Component {
+
+
+  render() {
+    return (
+      <button className="Btn" onClick={() => this.props.onClick()}>
+        {
+          this.props.value
+        }
+      </button>
+    );
+  }
+}
+
 
 export default App;
