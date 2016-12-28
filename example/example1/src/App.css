@@ -12,14 +12,12 @@
 .App-header {
   
   background-color: cornflowerblue;
-  height: 150px;
   margin: 10px;
   padding: 20px;
   color: #222;
 }
 
 .App-text {
-  text-align: center;
   word-wrap: break-word;
   height: 150px;
   overflow: hidden;
