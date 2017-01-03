@@ -9,9 +9,6 @@ class App extends Component {
     this.state = {
       requestContent: 'please press the btn'
     };
-    this.getJSON.bind(this);
-    // this.handlerValid.bind(this);
-    // this.handlerInvaid.bind(this);
   }
 
   // {this.renderBtn('有效请求', this.handlerValid)}
@@ -35,8 +32,8 @@ class App extends Component {
     return <RequestBtn value={text} onClick={handler} />;
   }
 
-  getJSON(url) {
-      var promise = new Promise(function (resolve, reject) {
+  async getJSON(url) {
+      return await new Promise(function (resolve, reject) {
       var client = new XMLHttpRequest();
       client.open("GET", url);
       client.onreadystatechange = handler;
@@ -49,27 +46,17 @@ class App extends Component {
         if (this.status === 200) {
           resolve(this.response);
         } else {
-          reject(new Error(this.statusText));
+          reject(new Error('net::ERR_CONNECTION_TIMED_OUT'));
         }
       };
-
-
-    });
-
-    return promise;
+      });
   }
 
-
-  setRequestContent(json) {
-    this.setState({ requestContent: json });
-  }
 
   handlerValid() {
-    //  debugger
-    //  let ref = this
-    this.getJSON("/img/example.jpg").then((json) => {
-      // debugger
-      // this.setRequestContent(json);
+    this.setState({ requestContent: "loading...." });
+    //debugger;
+    this.getJSON("https://api.github.com/users/github").then((json) => {
       this.setState({ requestContent: json });
       console.log('Contents: ' + json);
     }).catch(error => {
@@ -80,7 +67,14 @@ class App extends Component {
 
 
   handlerInvaid() {
-    this.setState({ requestContent: 'invalid' });
+    this.setState({ requestContent: "loading...." });
+    this.getJSON("https://baiduxxxx.com").then((json) => {
+      this.setState({ requestContent: json });
+      console.log('Contents: ' + json);
+    }).catch(error => {
+        console.log("Error", error.message);
+       this.setState({ requestContent: error.message });
+    });
   }
 }
 
