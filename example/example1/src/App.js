@@ -74,7 +74,7 @@ class App extends Component {
 
 
   handlerInvaid() {
-    this.setState({ requestContent: "loading...." });
+    this.setState({ requestContent: "loading...." ,showLoading:true });
     this.getJSON("https://baiduxxxx.com").then((json) => {
       this.setState({ requestContent: json,showLoading:false });
       console.log('Contents: ' + json);
