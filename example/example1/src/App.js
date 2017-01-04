@@ -17,19 +17,22 @@ class App extends Component {
   render() {
     console.log("----render---")
     return (
-        <div className="App">
-          <div className="App-header">
-            <Content value={this.state.requestContent} />
+        <div>
+          {(this.state.showLoading)?
+            <div className="container">
+              <Loading/>
+            </div>
+            : null}
+          <div className="App">
+            <div className="App-header">
+              <Content value={this.state.requestContent} />
+            </div>
             <div>
-              {(this.state.showLoading)?<Loading/>: null}
+              {this.renderBtn('有效请求', () => this.handlerValid())}
+              {this.renderBtn('无效请求', () => this.handlerInvaid())}
             </div>
           </div>
-          <div>
-            {this.renderBtn('有效请求', () => this.handlerValid())}
-            {this.renderBtn('无效请求', () => this.handlerInvaid())}
-          </div>
         </div>
-
             
     );
   }
